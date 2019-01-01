@@ -1,0 +1,16 @@
+# the HTTP endpoint for prisma API
+#endpoint: ''
+endpoint: https://eu1.prisma.sh/saurabh-sharma-a1f8f2/hackernews-node/dev
+
+# points to the datamodel file
+datamodel: datamodel.prisma
+
+# specifies language & location for the generated prisma client
+generate: 
+  - generator: javascript-client
+    output: ../src/generated/prisma-client
+
+# deploy hook
+hooks:
+  post-deploy:
+    - prisma generate
